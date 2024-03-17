@@ -46,7 +46,7 @@ const maxFreelancers = 10;
 
 const freelancersArray = [
   { name: "Alice", price: 30, occupation: "writer" },
-  { name: "Bob,", price: 50, occupation: "teacher" },
+  { name: "Bob", price: 50, occupation: "teacher" },
 ];
 
 const addFreelancerIntervalId = setInterval(addFreelancer, 2000);
@@ -60,10 +60,11 @@ function render() {
   freelancers.replaceChildren();
   freelancersArray.forEach((person) => {
     let freelancer = document.createElement("li");
-    let text = document.createTextNode(`${freelancersArray.name}`);
+    let text = document.createTextNode(`${person.name + ', ' + person.price + ', ' + person.occupation}`);
     freelancers.appendChild(freelancer);
     freelancer.appendChild(text);
     freelancer.classList.add("freelancer");
+    
   });
 }
 
