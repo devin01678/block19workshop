@@ -53,19 +53,17 @@ const addFreelancerIntervalId = setInterval(addFreelancer, 2000);
 
 render();
 
+// prettier-ignore
 function render() {
   // Render the freelancers
-  const freelancers = document.querySelector("#freelancerId");
+  let freelancers = document.querySelector("#freelancerId");
   freelancers.replaceChildren();
   freelancersArray.forEach((person) => {
-    const freelancer = document.createElement("li");
-    freelancer.classList.add(
-      "freelancer",
-      person.name,
-      person.price,
-      person.occupation
-    );
-    freelancers.append(freelancer);
+    let freelancer = document.createElement("li");
+    let text = document.createTextNode(`${freelancersArray.name}`);
+    freelancers.appendChild(freelancer);
+    freelancer.appendChild(text);
+    freelancer.classList.add("freelancer");
   });
 }
 
@@ -81,4 +79,24 @@ function addFreelancer() {
   if (freelancersArray.length >= maxFreelancers) {
     clearInterval(addFreelancerIntervalId);
   }
+}
+
+function findAveragePrice(price) {
+  let sum = 0;
+  for (let i = 0; i < prices.length; i++) {
+    sum += price[i];
+  }
+  return sum / prices.length;
+}
+
+let averagePrice = findAveragePrice(prices);
+
+console.log(averagePrice);
+
+function addElement() {
+  const newDiv = document.createElement("div");
+  const newContent = document.createTextNode("averagePrice");
+  newDiv.appendChild(newContent);
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
 }

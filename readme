@@ -1,0 +1,117 @@
+const freelancerArray = [
+{ id: 1, name: "Alice", price: 30, occupation: "writer" },
+{ id: 2, name: "Bob", price: 50, occupation: "teacher" },
+{ id: 3, name: "Carol", price: 70, occupation: "programmer" },
+{ id: 4, name: "Dr. Slice", price: 25, occupation: "gardener" },
+{ id: 5, name: "Dr. Pressure", price: 51, occupation: "programmer" },
+{ id: 6, name: "Prof. Possibility", price: 43, occupation: "teacher" },
+{ id: 7, name: "Prof. Prism", price: 81, occupation: "teacher" },
+{ id: 8, name: "Dr. Impulse", price: 43, occupation: "teacher" },
+{ id: 9, name: "Prof. Spark", price: 76, occupation: "programmer" },
+{ id: 10, name: "Dr. Wire", price: 47, occupation: "teacher" },
+{ id: 11, name: "Prof. Goose", price: 72, occupation: "driver" },
+];
+
+// prettier-ignore
+// const freelancerList = freelancerArray.map((freelancer, index) => console.log(index));
+// return <div>{freelancerList}</div>;
+
+function render() {
+// Render the freelancers
+const freelancers = document.querySelector(".freelancerClass");
+const freelancerElements = freelancerArray.map((freelancer) => {
+const element = document.createElement("li");
+element.classList.add(
+freelancerArray.name,
+freelancerArray.price,
+freelancerArray.occupation
+);
+console.log(element);
+});
+// freelancerArray.replaceChildren(...freelancerElements);\\
+
+// const freelancerArray = [
+// { name: "Alice", price: 30, occupation: "writer" },
+// { name: "Bob", price: 50, occupation: "teacher" },
+// { name: "Carol", price: 70, occupation: "programmer" },
+// { name: "Dr.Slice", price: 25, occupation: "gardener" },
+// { name: "Dr.Pressure", price: 51, occupation: "programmer" },
+// { name: "Prof.Possibility", price: 43, occupation: "teacher" },
+// { name: "Prof.Prism", price: 81, occupation: "teacher" },
+// { name: "Dr.Impulse", price: 43, occupation: "teacher" },
+// { name: "Prof.Spark", price: 76, occupation: "programmer" },
+// { name: "Dr.Wire", price: 47, occupation: "teacher" },
+// { name: "Prof.Goose", price: 72, occupation: "driver" },
+// ];
+
+// {
+// freelancerArray.map((freelancer) => {
+// console.log(freelancer);
+// return (
+// <Freelancer
+// name={freelancer.name}
+// price={freelancer.price}
+// occupation={freelancer.occupation}
+// />
+// );
+// });
+// }
+
+// function addCarol() {
+// const carol = freelancerArray[0];
+// return carol;
+// }
+
+// function addRandomFreelancerToList() {
+// const randomFreelancer = Math.floor(Math.random() \* freelancerArray.length);
+// const freelancer = freelancerArray[randomFreelancer];
+// }
+
+// setTimeout(addRandomFreelancerToList, 2000);
+
+render();
+
+function render() {
+// Render the freelancers
+const freelancers = document.querySelector("#freelancerId");
+freelancers.replaceChildren();
+freelancersArray.forEach((person) => {
+// const freelancer = document.createElement("li");
+// let unorderedList = document.createElement("ul");
+let freelancer = document.createElement("li");
+let text = document.createTextNode("${freelancersArray.name}");
+freelancer.appendChild(text);
+freelancer.classList.add("freelancer");
+// freelancers.append(freelancer);
+});
+}
+
+let listView = document.createElement("ul");
+
+for (let i = 0; i < freelancersArray.length; i++) {
+let listViewItem = document.createElement("li");
+listViewItem.appendChild(
+document.createTextNode("${freelancersArray.name}")
+);
+listView.appendChild(listViewItem);
+}
+
+return listView;
+}
+
+function render() {
+// Render the freelancers
+const freelancersList = document.createElement("ul");
+const freelancers = document.querySelector("#freelancerId");
+freelancers.replaceChildren();
+freelancersArray.forEach((person) => {
+const freelancer = document.createElement("li");
+freelancer.add("freelancer", person.name, person.price, person.occupation);
+freelancers.append(freelancer);
+});
+}
+
+// const freelancer = document.createElement("li");
+// let unorderedList = document.createElement("ul");
+
+    // freelancers.append(freelancer);
