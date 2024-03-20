@@ -115,3 +115,90 @@ freelancers.append(freelancer);
 // let unorderedList = document.createElement("ul");
 
     // freelancers.append(freelancer);
+
+use reduce, put function write for average inside the function that keeps updating/rendering, a good thing to look at is the demo
+
+// const names = [
+// "Alice",
+// "Bob",
+// "Carol",
+// "Dr.Slice",
+// "Dr.Pressure",
+// "Prof.Possibility",
+// "Prof.Prism",
+// "Dr.Impulse",
+// "Prof.Spark",
+// "Dr.Wire",
+// "Prof.Goose",
+// ];
+
+// const prices = [30, 50, 70, 25, 51, 43, 81, 43, 76, 47, 72];
+
+// const occupations = [
+// "writer",
+// "teacher",
+// "programmer",
+// "gardener",
+// "programmer",
+// "teacher",
+// "teacher",
+// "teacher",
+// "programmer",
+// "teacher",
+// "driver",
+// ];
+
+// const maxFreelancers = 10;
+
+// const freelancersArray = [
+// { name: "Alice", price: 30, occupation: "writer" },
+// { name: "Bob", price: 50, occupation: "teacher" },
+// ];
+
+// const averageText = document.createTextNode(
+// `The avg cost of the freelancers is ${average}`
+// );
+
+// function addFreelancer() {
+// const name = names[Math.floor(Math.random() * freelancersArray.length)];
+// const price = prices[Math.floor(Math.random() * freelancersArray.length)];
+// const occupation =
+// occupations[Math.floor(Math.random() * freelancersArray.length)];
+// freelancersArray.push({ name, price, occupation });
+
+// findAveragePrice(price);
+// let averagePrice = findAveragePrice(price);
+// render();
+
+// if (freelancersArray.length >= maxFreelancers) {
+// clearInterval(addFreelancerIntervalId);
+// }
+
+// oddsOutput.innerText = words.join()
+
+// odds() {
+// //return the odd numbers in data
+// const oddNumbers = this.data.filter((num) => num % 2 === 1);
+// return oddNumbers;
+// }
+
+// evens() {
+// //return the even numbers in data
+// const evenNumbers = this.data.filter((num) => num % 2 !== 1);
+// return evenNumbers;
+// }
+
+// const splitNumber = number.split(" ");
+// const cleanedNumbers = splitNumber.filter((number) => number);
+// numbers.start.push(...cleanedNumbers);
+
+// const startingNumber = numbers.start.map((number) => {
+// const element = document.createElement("li");
+// const button = document.createElement("button");
+// button.textContent = number;
+// element.append(button);
+// return element;
+// });
+// return startingNumber;
+
+// typeof input.value !== "number"

@@ -1,103 +1,90 @@
-// const freelancerArray = [
-//   { name: "Alice", price: 30, occupation: "writer" },
-//   { name: "Bob", price: 50, occupation: "teacher" },
-//   { name: "Carol", price: 70, occupation: "programmer" },
-//   { name: "Dr.Slice", price: 25, occupation: "gardener" },
-//   { name: "Dr.Pressure", price: 51, occupation: "programmer" },
-//   { name: "Prof.Possibility", price: 43, occupation: "teacher" },
-//   { name: "Prof.Prism", price: 81, occupation: "teacher" },
-//   { name: "Dr.Impulse", price: 43, occupation: "teacher" },
-//   { name: "Prof.Spark", price: 76, occupation: "programmer" },
-//   { name: "Dr.Wire", price: 47, occupation: "teacher" },
-//   { name: "Prof.Goose", price: 72, occupation: "driver" },
-// ];
-
-const names = [
-  "Alice",
-  "Bob",
-  "Carol",
-  "Dr.Slice",
-  "Dr.Pressure",
-  "Prof.Possibility",
-  "Prof.Prism",
-  "Dr.Impulse",
-  "Prof.Spark",
-  "Dr.Wire",
-  "Prof.Goose",
-];
-
-const prices = [30, 50, 70, 25, 51, 43, 81, 43, 76, 47, 72];
-
-const occupations = [
-  "writer",
-  "teacher",
-  "programmer",
-  "gardener",
-  "programmer",
-  "teacher",
-  "teacher",
-  "teacher",
-  "programmer",
-  "teacher",
-  "driver",
-];
-
-const maxFreelancers = 10;
-
 const freelancersArray = [
+  { name: "Carol", price: 70, occupation: "programmer" },
+  { name: "Dr.Slice", price: 25, occupation: "gardener" },
+  { name: "Dr.Pressure", price: 51, occupation: "programmer" },
+  { name: "Prof.Possibility", price: 43, occupation: "teacher" },
+  { name: "Prof.Prism", price: 81, occupation: "teacher" },
+  { name: "Dr.Impulse", price: 43, occupation: "teacher" },
+  { name: "Prof.Spark", price: 76, occupation: "programmer" },
+  { name: "Dr.Wire", price: 47, occupation: "teacher" },
+  { name: "Prof.Goose", price: 72, occupation: "driver" },
+];
+
+const randomFreelancersArray = [
   { name: "Alice", price: 30, occupation: "writer" },
   { name: "Bob", price: 50, occupation: "teacher" },
 ];
 
-const addFreelancerIntervalId = setInterval(addFreelancer, 2000);
+const title = document.querySelector("#title");
+const container = document.querySelector("#container");
+let average = 0;
+
+const addFreelancerIntervalId = setInterval(addRandomFreelancerToList, 2000);
 
 render();
 
-// prettier-ignore
 function render() {
   // Render the freelancers
   let freelancers = document.querySelector("#freelancerId");
   freelancers.replaceChildren();
-  freelancersArray.forEach((person) => {
+  randomFreelancersArray.forEach((person) => {
     let freelancer = document.createElement("li");
-    let text = document.createTextNode(`${person.name + ', ' + person.price + ', ' + person.occupation}`);
+    let text = document.createTextNode(
+      `${person.name + ", " + person.price + ", " + person.occupation}`
+    );
     freelancers.appendChild(freelancer);
     freelancer.appendChild(text);
     freelancer.classList.add("freelancer");
-    
   });
 }
 
-function addFreelancer() {
-  const name = names[Math.floor(Math.random() * names.length)];
-  const price = prices[Math.floor(Math.random() * prices.length)];
-  const occupation =
-    occupations[Math.floor(Math.random() * occupations.length)];
-  freelancersArray.push({ name, price, occupation });
+function addRandomFreelancerToList() {
+  const randomNumber = Math.floor(Math.random() * freelancersArray.length);
+  const item = freelancersArray[randomNumber];
+  const index = freelancersArray.indexOf(item);
+  freelancersArray.splice(index, 1);
+  randomFreelancersArray.push(item);
+
+  average =
+    randomFreelancersArray.reduce(
+      (acc, currentItem) => acc + currentItem.price,
+      0
+    ) / randomFreelancersArray.length;
+
+  title.innerText = `The avg revenue of the rates was: ${average}`;
 
   render();
-
-  if (freelancersArray.length >= maxFreelancers) {
-    clearInterval(addFreelancerIntervalId);
-  }
 }
 
 function findAveragePrice(price) {
   let sum = 0;
-  for (let i = 0; i < prices.length; i++) {
+  for (let i = 0; i < freelancersArray.length; i++) {
     sum += price[i];
   }
-  return sum / prices.length;
+  return sum / freelancersArray.length;
 }
 
-let averagePrice = findAveragePrice(prices);
+// let averagePrice = findAveragePrice(freelancersArray.price);
 
-console.log(averagePrice);
+// function averagePriceUpdates() {
+//   let averagePrice = findAveragePrice(freelancersArray.price);
+//   console.log(averagePrice);
+// }
 
-function addElement() {
-  const newDiv = document.createElement("div");
-  const newContent = document.createTextNode("averagePrice");
-  newDiv.appendChild(newContent);
-  const currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
+// setInterval(() => averagePriceUpdates(), 2000);
+
+// function reiterateFreelancers() {
+//   if (freelancersArray.length < 10) {
+//     findAveragePrice;
+//   }
+// }
+
+// function addElement() {
+//   const newDiv = document.createElement("div");
+//   const newContent = document.createTextNode("averagePrice");
+//   newDiv.appendChild(newContent);
+//   const currentDiv = document.getElementById("div1");
+//   document.body.insertBefore(newDiv, currentDiv);
+// }
+
+// let averagePrice = setInterval(findAveragePrice, 2000);
